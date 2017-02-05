@@ -12,6 +12,11 @@ class Component {
         foreach ($config as $name => $value) {
             $this->$name = $value;
         }
+        $this->init();
+    }
+
+    public function init() {
+
     }
 
     public function __get($name) {

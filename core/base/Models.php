@@ -7,10 +7,10 @@
 namespace core\base;
 class Models extends Component {
     private $db;
+
     public function __construct($config = []) {
         parent::__construct($config);
         $this->db = App::$app->getDb();
-        var_dump($this->db);
     }
 
     public function getOne() {
