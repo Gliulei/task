@@ -11,17 +11,17 @@
 4. 脚本出现异常,要及时报警
 5. 支持分钟，天，周，月，年任务五种类型# task
 
-task_id             // 任务id
-task_type        // 任务类型  1:分钟任务  2:天任务  3:周任务   4:月任务  5: 年任务
-task_name    // 任务名称
-server        // 服务器 
-command        // 执行命令 
-run_result         // 末次运行结果  1: 运行失败  2: 运行成功 
-run_state        // 运行状态  1:禁用 2:等待运行 3:正在运行
-run_time        // 任务下次开始时间 
-month        // 几月 
-day                  // 几号 
-hour                  // 几时
-minute        // 几分
-manager        // 任务负责人
-time                   //配置末次修改时间
+CREATE TABLE `task` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `type` int(1) unsigned NOT NULL COMMENT '类型 1:分钟任务  2:天任务  3:周任务   4:月任务  5: 年任务',
+  `name` varchar(255) NOT NULL DEFAULT '' COMMENT '任务名称',
+  `server` varchar(100) NOT NULL DEFAULT '' COMMENT '服务器',
+  `command` varchar(255) NOT NULL DEFAULT '' COMMENT '执行命令',
+  `run_state` int(1) NOT NULL DEFAULT '2' COMMENT '运行状态 1 禁用 2 等待运行 3 正在运行',
+  `hour` varchar(10) NOT NULL DEFAULT '' COMMENT '小时',
+  `minute` varchar(10) NOT NULL DEFAULT '' COMMENT '分钟',
+  `month` varchar(10) NOT NULL DEFAULT '' COMMENT '月',
+  `operator` varchar(100) NOT NULL DEFAULT '' COMMENT '操作人',
+  `add_time` int(11) NOT NULL COMMENT '添加时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='任务表';
